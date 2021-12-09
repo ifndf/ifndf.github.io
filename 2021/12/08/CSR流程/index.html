@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ifndf.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="重要的结构体TaskData，包含handel函数指针的结构体。 1typedef struct TaskData &amp;#123; void (*handler)(Task, MessageId, Message);&amp;#125; TaskData;   Task ， 指向TaskData结构的指针 1typedef struct TaskData *Task;  hsTaskData结构体 1234">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QCC3040大致流程">
+<meta property="og:url" content="https://ifndf.github.io/2021/12/08/CSR%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Travis&#39;s Westworld">
+<meta property="og:description" content="重要的结构体TaskData，包含handel函数指针的结构体。 1typedef struct TaskData &amp;#123; void (*handler)(Task, MessageId, Message);&amp;#125; TaskData;   Task ， 指向TaskData结构的指针 1typedef struct TaskData *Task;  hsTaskData结构体 1234">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-08T12:54:43.632Z">
+<meta property="article:modified_time" content="2021-12-09T16:15:32.621Z">
+<meta property="article:author" content="Travis">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://ifndf.github.io/2021/12/08/CSR%E6%B5%81%E7%A8%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>QCC3040大致流程 | Travis's Westworld</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Travis's Westworld</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">9</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ifndf.github.io/2021/12/08/CSR%E6%B5%81%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Travis">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Travis's Westworld">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          QCC3040大致流程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-08 20:54:43" itemprop="dateCreated datePublished" datetime="2021-12-08T20:54:43+08:00">2021-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-10 00:15:32" itemprop="dateModified" datetime="2021-12-10T00:15:32+08:00">2021-12-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TWS/" itemprop="url" rel="index"><span itemprop="name">TWS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="重要的结构体"><a href="#重要的结构体" class="headerlink" title="重要的结构体"></a>重要的结构体</h3><p>TaskData，包含handel函数指针的结构体。</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typedef struct <span class="type">TaskData</span> &#123; void (*handler)(<span class="type">Task</span>, <span class="type">MessageId</span>, <span class="type">Message</span>);&#125; <span class="type">TaskData</span>;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Task ， 指向TaskData结构的指针</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TaskData</span> *<span class="title">Task</span>;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>hsTaskData结构体</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Sink application data */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line">    TaskData    <span class="keyword">task</span>;</span><br><span class="line">&#125; hsTaskData;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>connectionState结构体</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    TaskData                        task;     <span class="comment">//handle函数指针：connectionBluestackHandler</span></span><br><span class="line">    <span class="built_in">Task</span>                            theAppTask;  <span class="comment">//TaskData指针，继续分析可知是&amp;theSink.task=app_handler</span></span><br><span class="line">    connectionStates                state:<span class="number">8</span>; <span class="comment">/* uses only 2 bits */</span></span><br><span class="line">    <span class="keyword">unsigned</span>                        flags:<span class="number">8</span>; <span class="comment">/* see CONNECTION_FLAG_* */</span></span><br><span class="line">    <span class="keyword">const</span> msg_filter                *msgFilter;</span><br><span class="line">    connectionInquiryState          inqState;</span><br><span class="line">    connectionSmState               smState;</span><br><span class="line">    connectionReadInfoState         infoState;</span><br><span class="line">    connectionSdpState              sdpState;</span><br><span class="line">    connectionLinkPolicyState       linkPolicyState;</span><br><span class="line">    connectionL2capState            l2capState;</span><br><span class="line">    connectionReadTxPwrState        readTxPwrState;</span><br><span class="line">    connectionBleScanAdState        bleScanAdState;</span><br><span class="line">    connectionBleReadRndAddrState   bleReadRdnAddrState;</span><br><span class="line">    connectionDmScOverrideState     dmScOverrideState;</span><br><span class="line">    uint16                          configAddrType;</span><br><span class="line">&#125; connectionState;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>connectionStates结构体</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">    connectionUninitialised,</span></span><br><span class="line"><span class="built_in">    connectionInitialising,</span></span><br><span class="line"><span class="built_in">    connectionReady,</span></span><br><span class="line">    connectionTestMode</span><br><span class="line">&#125; connectionStates<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hsTaskData theSink<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static connectionState   theCm<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Sink流程分析"><a href="#Sink流程分析" class="headerlink" title="Sink流程分析"></a>Sink流程分析</h3><p>(1)首先从函数void _init(void)开始：<br>——》</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theSink.task.handler</span> = app_handler<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>app_handler是总的应用处理函数，大致定义如下</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void app<span class="constructor">_handler(Task <span class="params">task</span>, MessageId <span class="params">id</span>, Message <span class="params">message</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(...)</span><br><span class="line">        handle<span class="constructor">UEMessage(<span class="params">task</span>, <span class="params">id</span>,  <span class="params">message</span>)</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(...)    </span><br><span class="line">        handle<span class="constructor">CLMessage(<span class="params">task</span>, <span class="params">id</span>,  <span class="params">message</span>)</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>（...）</span><br><span class="line">        ...;</span><br><span class="line">    <span class="keyword">else</span><span class="operator"></span></span><br><span class="line"><span class="operator">        ...</span></span><br><span class="line"><span class="operator"></span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(2)init跑完后，才从main开始：<br>在里面调用到sinkConnectionInit()，其原型为</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="constructor">ConnectionInitEx3(&amp;<span class="params">theSink</span>.<span class="params">task</span>, NULL, <span class="params">pdl_size</span>, SC_CONNECTION_LIB_OPTIONS)</span>;</span><br></pre></td></tr></table></figure>
+<p>其函数定义：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void <span class="constructor">ConnectionInitEx3(&amp;<span class="params">theSink</span>.<span class="params">task</span>, <span class="params">const</span> <span class="params">msg_filter</span> <span class="operator">*</span><span class="params">msgFilter</span> , <span class="params">uint16</span> TdlNumberOfDevices  , <span class="params">uint16</span> <span class="params">options</span>)</span></span><br><span class="line">&#123;<span class="operator"></span></span><br><span class="line"><span class="operator">	...</span></span><br><span class="line"><span class="operator">    </span>theCm.task.handler = connectionBluestackHandler；</span><br><span class="line">    theCm.theAppTask = &amp;theSink.task ;   <span class="comment">//到这已经跟最重要的app_handler关联起来了</span><span class="operator"></span></span><br><span class="line"><span class="operator">    ...</span></span><br><span class="line"><span class="operator">    </span><span class="constructor">MessageSend(&amp;<span class="params">theCm</span>.<span class="params">task</span>, CL_INTERNAL_INIT_REQ, NO_PAYLOAD)</span>; <span class="comment">//注意是小写的task,这里是向connectionBluestackHandler发送消息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(3)继续分析，上面MessageSend(&amp;theCm.task, CL_INTERNAL_INIT_REQ, NO_PAYLOAD)，就到了<br>connectionBluestackHandler处理函数了，其定义如下：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">void connection<span class="constructor">BluestackHandler(Task <span class="params">task</span>, MessageId <span class="params">id</span>, Message <span class="params">message</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* Get access to the Connection Library instance state */</span></span><br><span class="line">    connectionState *theCm = (connectionState *)task;  <span class="comment">//利用TaskData的地址知道整个消息结构体的地址，</span></span><br><span class="line">    connectionStates state = theCm-&gt;state;             <span class="comment">//然后将TaskData *类型强转为theCm*类型.由此指针变量名也可以推测，</span></span><br><span class="line">													   <span class="comment">//参数task正是通过上面MessageSent的第一个参数本身，即&amp;theCm.task</span></span><br><span class="line">    <span class="constructor">PRINT((<span class="string">&quot;connectionBluestackHandler - Id = 0x%x\n&quot;</span>, <span class="params">id</span>)</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Handle Bluestack primitives seperately */</span></span><br><span class="line">    switch (id)</span><br><span class="line">    &#123;</span><br><span class="line">        case MESSAGE_BLUESTACK_DM_PRIM:</span><br><span class="line">            connection<span class="constructor">BluestackHandlerDm(<span class="params">theCm</span>, (<span class="params">const</span> DM_UPRIM_T <span class="operator">*</span>)</span>message);</span><br><span class="line">            break;</span><br><span class="line">        case<span class="operator"> ...</span></span><br><span class="line"><span class="operator">            </span>break;<span class="operator"></span></span><br><span class="line"><span class="operator">        ...</span></span><br><span class="line"><span class="operator">        </span><span class="comment">/* Everything else must be internal connection library primitives */</span></span><br><span class="line">        default:     <span class="comment">//case的id中没有CL_INTERNAL_INIT_REQ，只会跑到这里</span></span><br><span class="line">        &#123;</span><br><span class="line">            switch (state)  <span class="comment">//state没被赋值，所以是0，即connectionUninitialised</span></span><br><span class="line">            &#123;</span><br><span class="line">                case connectionReady:</span><br><span class="line">                    connection<span class="constructor">BluestackHandlerReady(<span class="params">theCm</span>, <span class="params">id</span>, <span class="params">message</span>)</span>;</span><br><span class="line">                    break;</span><br><span class="line"></span><br><span class="line">                case connectionUninitialised:   <span class="comment">//进入这里</span></span><br><span class="line">                    connection<span class="constructor">BluestackHandlerUninitialised(<span class="params">theCm</span>, <span class="params">id</span>, <span class="params">message</span>)</span>;</span><br><span class="line">                    break;</span><br><span class="line"></span><br><span class="line">                case connectionInitialising:</span><br><span class="line">                    connection<span class="constructor">BluestackHandlerInitialising(<span class="params">theCm</span>, <span class="params">id</span>, <span class="params">message</span>)</span>;</span><br><span class="line">                    break;</span><br><span class="line"></span><br><span class="line">                case connectionTestMode:</span><br><span class="line">                    connection<span class="constructor">BluestackHandlerTestMode(<span class="params">theCm</span>, <span class="params">id</span>, <span class="params">message</span>)</span>;</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(4)接着看connectionBluestackHandlerUninitialised</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">static void connection<span class="constructor">BluestackHandlerUninitialised(<span class="params">connectionState</span> <span class="operator">*</span><span class="params">theCm</span>, MessageId <span class="params">id</span>, Message <span class="params">message</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="constructor">UNUSED(<span class="params">theCm</span>)</span>;</span><br><span class="line">    <span class="constructor">UNUSED(<span class="params">message</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Depending upon the message id...*/</span></span><br><span class="line">    <span class="keyword">if</span> (id<span class="operator"> == </span>CL_INTERNAL_INIT_REQ)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="constructor">PRINT((<span class="string">&quot;CL_INTERNAL_INIT_REQ\n&quot;</span>)</span>);</span><br><span class="line">        connection<span class="constructor">HandleInternalInit(<span class="params">connectionInit</span>)</span>; <span class="comment">//进入这里</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* Prims we are not handling - Not panicing the app in DEBUG Mode. Just Print this INFO and ignore it.*/</span></span><br><span class="line">        <span class="constructor">CL_DEBUG_INFO((<span class="string">&quot;Ignored Unexpected Message - Code 0x%x State 0x%x MsgId 0x%x\n&quot;</span>, <span class="params">connectionUnexpectedCmPrim</span>, <span class="params">theCm</span>-&gt;<span class="params">state</span>, <span class="params">id</span>)</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(5)接着看connectionHandleInternalInit</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">connectionHandleInternalInit</span><span class="params">(connectionInitState state)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* If we&#x27;re ready to run, change state */</span>    </span><br><span class="line">    <span class="keyword">if</span>(state == connectionInitComplete)</span><br><span class="line">    &#123;</span><br><span class="line">        theCm.state = connectionReady;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (theCm.state != connectionInitialising) <span class="comment">//因状态还是connectionUninitialised，会进入这里</span></span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        theCm.state = connectionInitialising;  <span class="comment">//更新状态</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Start a Timer to notify the Client if the initialisation fails */</span></span><br><span class="line">		<span class="comment">/*等待一段时间发送CL_INTERNAL_INIT_TIMEOUT_IND这个消息,此数值为0，还是向connectionBluestackHandler发送的*/</span></span><br><span class="line">        <span class="built_in">MessageSendLater</span>(&amp;theCm.task, CL_INTERNAL_INIT_TIMEOUT_IND, NO_PAYLOAD, (uint32) INIT_TIMEOUT);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Check to see if all objects have been initialised */</span></span><br><span class="line">    <span class="keyword">if</span>(state == connectionInitComplete)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="comment">/* Initialise auth requirements to unknown */</span></span><br><span class="line">		theCm.smState.authentication_requirements = AUTH_REQ_UNKNOWN;</span><br><span class="line">			</span><br><span class="line">        <span class="comment">/* Some DM stuff can be initialised only after the DM register has happened so do it here */</span></span><br><span class="line">        <span class="built_in">connectionDmInfoInit</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Let the application we&#x27;re ready to go */</span></span><br><span class="line">        <span class="built_in">connectionSendInitCfm</span>(theCm.theAppTask, success, theCm.infoState.version);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/* Depending upon the previous object initialised, initialise the next one */</span></span><br><span class="line">        <span class="built_in"><span class="keyword">switch</span></span>(state)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span> connectionInit:   <span class="comment">/*由(4)参数可知，此时会调用这个函数*/</span></span><br><span class="line">                <span class="built_in">connectionDmInit</span>();  <span class="comment">//Device Manager Init</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> connectionInitDm:</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> CL_EXCLUDE_RFCOMM</span></span><br><span class="line">                <span class="built_in">connectionRfcInit</span>();	</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">                <span class="built_in">connectionL2capInit</span>();</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> CL_EXCLUDE_RFCOMM</span></span><br><span class="line">            <span class="keyword">case</span> connectionInitRfc:</span><br><span class="line">                <span class="built_in">connectionL2capInit</span>();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> connectionInitL2cap:</span><br><span class="line">                <span class="built_in">connectionUdpInit</span>();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> connectionInitUdp:</span><br><span class="line">                <span class="built_in">connectionTcpInit</span>();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> connectionInitTcp:</span><br><span class="line">                <span class="built_in">connectionSdpInit</span>(&amp;theCm.sdpState);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> connectionInitSdp: </span><br><span class="line">				<span class="built_in">connectionVersionInit</span>();</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">				</span><br><span class="line">			<span class="keyword">case</span> connectionInitVer:</span><br><span class="line">                <span class="built_in">connectionSmInit</span>(theCm.infoState.version,</span><br><span class="line">                                 &amp;theCm.smState,</span><br><span class="line">                                 theCm.flags);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> connectionInitSm:</span><br><span class="line">                theCm.smState.noDevices = <span class="built_in">connectionAuthInit</span>();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">case</span> connectionInitComplete:</span><br><span class="line">                <span class="comment">/* We&#x27;re ready! */</span>                </span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(6)接下来第二次进入connectionBluestackHandler这个函数，只不过此时的状态已经更改为theCm.state = connectionInitialising;<br>所以进入的事件为</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">case connectionInitialising:</span><br><span class="line">	connection<span class="constructor">BluestackHandlerInitialising(<span class="params">theCm</span>, <span class="params">id</span>, <span class="params">message</span>)</span>;</span><br><span class="line">	break;</span><br></pre></td></tr></table></figure>
+
+
+<p>继续看connectionBluestackHandlerInitialising</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="literal">void</span> connectionBluestackHandlerInitialising(connectionState *theCm, MessageId id, Message message)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* Depending upon the message id...*/</span></span><br><span class="line">    <span class="keyword">switch</span> (id)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> CL_INTERNAL_INIT_CFM:</span><br><span class="line">            PRINT((<span class="string">&quot;CL_INTERNAL_INIT_CFM\n&quot;</span>));</span><br><span class="line">            connectionHandleInternalInit<span class="function"><span class="params">(((<span class="keyword">const</span> CL_INTERNAL_INIT_CFM_T*)message)-&gt;state)</span>;</span></span><br><span class="line"><span class="function">            <span class="title">break</span>;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">        <span class="title">case</span> <span class="title">CL_INTERNAL_INIT_TIMEOUT_IND</span>:     //根据<span class="params">(<span class="number">5</span>)</span><span class="title">MessageSend</span>的<span class="title">id</span>会跑到这里</span></span><br><span class="line"><span class="function">            <span class="title">PRINT</span><span class="params">((<span class="string">&quot;CL_INTERNAL_INIT_TIMEOUT_IND\n&quot;</span>))</span>;</span></span><br><span class="line"><span class="function">            <span class="params">(<span class="literal">void</span>)</span><span class="title">MessageCancelFirst</span><span class="params">(&amp;theCm-&gt;task, CL_INTERNAL_INIT_CFM)</span>;</span></span><br><span class="line"><span class="function">            <span class="title">SET_CM_STATE</span><span class="params">(connectionUninitialised)</span>;</span></span><br><span class="line"><span class="function">            <span class="title">connectionSendInitCfm</span><span class="params">(theCm-&gt;theAppTask, fail, bluetooth_unknown)</span>; //终于跟<span class="title">app_handler</span>联系了</span></span><br><span class="line"><span class="function">            <span class="title">break</span>;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">        <span class="title">case</span> <span class="title">CL_INTERNAL_SM_INIT_REQ</span>:</span></span><br><span class="line"><span class="function">            <span class="title">PRINT</span><span class="params">((<span class="string">&quot;CL_INTERNAL_SM_INIT_REQ\n&quot;</span>))</span>;</span></span><br><span class="line"><span class="function">            <span class="title">handleSecurityInitReq</span><span class="params">((<span class="keyword">const</span> CL_INTERNAL_SM_INIT_REQ_T *)message)</span>;</span></span><br><span class="line"><span class="function">            <span class="title">break</span>;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">        <span class="title">case</span> <span class="title">CL_INTERNAL_DM_READ_LOCAL_VERSION_REQ</span>:</span></span><br><span class="line"><span class="function">             <span class="title">PRINT</span><span class="params">((<span class="string">&quot;CL_INTERNAL_DM_READ_LOCAL_VERSION_REQ\n&quot;</span>))</span>;</span></span><br><span class="line"><span class="function">             <span class="title">connectionHandleReadLocalVersionRequest</span><span class="params">(&amp;theCm-&gt;infoState, (<span class="keyword">const</span> CL_INTERNAL_DM_READ_LOCAL_VERSION_REQ_T *)message)</span>;</span></span><br><span class="line"><span class="function">             <span class="title">break</span>;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">        <span class="title">case</span> <span class="title">CL_INTERNAL_DM_SET_BT_VERSION_REQ</span>:</span></span><br><span class="line"><span class="function">            <span class="title">PRINT</span><span class="params">((<span class="string">&quot;CL_INTERNAL_DM_SET_BT_VERSION_REQ\n&quot;</span>))</span>;</span></span><br><span class="line"><span class="function">            <span class="title">connectionHandleSetBtVersionReq</span><span class="params">(&amp;theCm-&gt;infoState, (<span class="keyword">const</span> CL_INTERNAL_DM_SET_BT_VERSION_REQ_T *)message)</span>;</span></span><br><span class="line"><span class="function">            <span class="title">break</span>;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">        <span class="title">case</span> <span class="title">CL_INTERNAL_SM_ADD_DEVICE_AT_TDL_POS_REQ</span>:</span></span><br><span class="line"><span class="function">            <span class="title">PRINT</span><span class="params">((<span class="string">&quot;CL_INTERNAL_SM_ADD_DEVICE_AT_TDL_POS_REQ\n&quot;</span>))</span>;</span></span><br><span class="line"><span class="function">            <span class="title">connectionHandleAddDeviceAtTdlPosReq</span><span class="params">(&amp;theCm-&gt;smState, (<span class="keyword">const</span> CL_INTERNAL_SM_ADD_DEVICE_AT_TDL_POS_REQ_T *)message)</span>;</span></span><br><span class="line"><span class="function">            <span class="title">break</span>;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">        <span class="title">default</span>:</span></span><br><span class="line"><span class="function">            /* <span class="title">Prims</span> <span class="title">we</span> <span class="title">are</span> <span class="title">not</span> <span class="title">handling</span> - <span class="title">for</span> <span class="title">now</span> <span class="title">panic</span> <span class="title">the</span> <span class="title">app</span> */</span></span><br><span class="line"><span class="function">            <span class="title">handleUnexpected</span><span class="params">(connectionUnhandledMessage, theCm-&gt;state, id)</span>;</span></span><br><span class="line"><span class="function">            <span class="title">break</span>;</span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>继续看connectionSendInitCfm(theCm-&gt;theAppTask, fail, bluetooth_unknown)</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">void connection<span class="constructor">SendInitCfm(Task <span class="params">task</span>, <span class="params">connection_lib_status</span> <span class="params">status</span>, <span class="params">cl_dm_bt_version</span> <span class="params">version</span>)</span></span><br><span class="line">&#123;    </span><br><span class="line">    <span class="constructor">MAKE_CL_MESSAGE(CL_INIT_CFM)</span>;</span><br><span class="line">    message-&gt;status = status;</span><br><span class="line">	message-&gt;version = version;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*这个函数是重点，这个task是最重要的任务，所以会往上面返回一个没有初始化成功的标志*/</span></span><br><span class="line">    <span class="constructor">MessageSend(<span class="params">task</span>, CL_INIT_CFM, <span class="params">message</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Cancel initialisation timeout */</span></span><br><span class="line">    <span class="keyword">if</span>(status<span class="operator"> == </span>success)</span><br><span class="line">    &#123;</span><br><span class="line">        (void) <span class="constructor">MessageCancelFirst(<span class="params">connectionGetCmTask</span>()</span>, CL_INTERNAL_INIT_TIMEOUT_IND);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当这个时间到之后，确实会发送初始化失败，但是如果底层初始化成功的话这个消息将被取消，不会发往上面，其实程序看到这里的话，<br>应该知道当状态变为初始化完成时，会向上面发送成功的标志，应该说流程大致有个印象，对于具体的其状态是怎样切换成初始化完成的，<br>这个有待后面研究.</p>
+<p>MessageSend(theCm-&gt;theAppTask, CL_INIT_CFM, message);</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void app<span class="constructor">_handler(Task <span class="params">task</span>, MessageId <span class="params">id</span>, Message <span class="params">message</span>)</span></span><br><span class="line">&#123;<span class="operator"></span></span><br><span class="line"><span class="operator">    ...</span></span><br><span class="line"><span class="operator">    </span><span class="keyword">else</span>  <span class="keyword">if</span> ( (id &gt;= CL_MESSAGE_BASE)<span class="operator"> &amp;&amp; </span>(id &lt; CL_MESSAGE_TOP) )</span><br><span class="line">    &#123;</span><br><span class="line">        handle<span class="constructor">CLMessage(<span class="params">task</span>, <span class="params">id</span>,  <span class="params">message</span>)</span>;</span><br><span class="line">        ahi<span class="constructor">TestEchoConnectionMessage(<span class="params">id</span>, <span class="params">message</span>)</span>;</span><br><span class="line">    &#125;<span class="operator"></span></span><br><span class="line"><span class="operator">	...</span></span><br><span class="line"><span class="operator"></span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>handleCLMessage(theCm-&gt;theAppTask, id,  message);</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">后续分析</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="关于Messagesent（）"><a href="#关于Messagesent（）" class="headerlink" title="关于Messagesent（）"></a>关于Messagesent（）</h3><p>当调用Messagesent后，其最终实现的效果是：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Messagesent(<span class="keyword">Task</span> <span class="keyword">task</span>,  ,  )</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//经过层层下来，最终实现以下效果：</span></span><br><span class="line">  *<span class="keyword">task</span>.handle(<span class="keyword">Task</span> <span class="keyword">task</span>, id, Message )</span><br><span class="line">    &#123;</span><br><span class="line">        doSomething（）； <span class="comment">//这时handle函数可以利用参数task地址知道其所在的消息结构体地址（例如theCm）,</span></span><br><span class="line">                          <span class="comment">//便可使用theCm的其他成员去做事。</span></span><br><span class="line">						  <span class="comment">//这也是为什么官方指导手册规定自定义消息结构体的第一个成员必须为TaskData的原因，        </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以下是《CSR官方开发指南》原话,：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">When declaring <span class="keyword">a</span> structure <span class="keyword">for</span> <span class="keyword">a</span> task <span class="keyword">the</span> TaskData <span class="keyword">element</span> is mandatory <span class="keyword">and</span> must be <span class="keyword">the</span> <span class="keyword">first</span> <span class="keyword">element</span> <span class="keyword">of</span> <span class="keyword">the</span></span><br><span class="line">structure</span><br></pre></td></tr></table></figure>
+<p>估计要求这样定义包含task的结构体，确实为了配合Messagesent以及handle的使用，十分巧妙····</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>大致流程分析，最重要的是对结构体定义方式的理解，需要理解结构体中第一个定义TaskData函数指针的用意,<br>handle函数、结构体、MessageSend三者是相互关联的。<br>最难的还是Messagesent的实现，涉及到多级指针的操作，直接往下看不好理解，只知道最终实现的作用效果。</p>
+<h3 id="专业缩写"><a href="#专业缩写" class="headerlink" title="专业缩写"></a>专业缩写</h3><p>DM:  Device Manager<br>pdl：protocolDescriptorList<br>TDL: trusted device list<br>SC:  Secure Connections<br>SM:  Security Manager</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/code_warry/article/details/50519113">csr8670–sink工程的大致工作流程分析（以speaker为例）一</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/12/02/Cmake%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/" rel="prev" title="cmake简单入门">
+      <i class="fa fa-chevron-left"></i> cmake简单入门
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+	
+	<!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+	
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+
+    <meting-js
+      server="tencent"
+      id="002XIa1L4ej3G7"
+	  type="song"
+	  mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="true"
+      volume="0.3"
+      theme="#FADFA3"
+      order="random"
+	  loop="all"
+      preload="auto"
+      mutex="true"
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-number">1.</span> <span class="nav-text">重要的结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sink%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">Sink流程分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EMessagesent%EF%BC%88%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">关于Messagesent（）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%93%E4%B8%9A%E7%BC%A9%E5%86%99"><span class="nav-number">6.</span> <span class="nav-text">专业缩写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Travis</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Travis</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
