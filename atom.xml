@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Travis&#39;s Westworld</title>
+  
+  
+  <link href="https://ifndf.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://ifndf.github.io/"/>
+  <updated>2023-01-19T18:04:43.321Z</updated>
+  <id>https://ifndf.github.io/</id>
+  
+  <author>
+    <name>Travis</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>reason,season and lifetime</title>
+    <link href="https://ifndf.github.io/2023/01/20/reason,season%20and%20lifetime/"/>
+    <id>https://ifndf.github.io/2023/01/20/reason,season%20and%20lifetime/</id>
+    <published>2023-01-19T18:04:43.321Z</published>
+    <updated>2023-01-19T18:04:43.321Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&quot;left&quot;&gt;
+&lt;img src=&quot;https://desk-fd.zol-img.com.cn/t_s960x600c5/g6/M00/00/04/ChMkKWEjCQ6IQocKABDIfMGZntcAATBvAJstlYAEMiU603.jpg&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>相信算命吗？</title>
+    <link href="https://ifndf.github.io/2023/01/15/%E7%9B%B8%E4%BF%A1%E7%AE%97%E5%91%BD%E5%90%97/"/>
+    <id>https://ifndf.github.io/2023/01/15/%E7%9B%B8%E4%BF%A1%E7%AE%97%E5%91%BD%E5%90%97/</id>
+    <published>2023-01-15T01:27:55.474Z</published>
+    <updated>2023-01-15T14:14:46.468Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt; </summary>
+        
+      
+    
+    
+    
+    <category term="随想" scheme="https://ifndf.github.io/categories/%E9%9A%8F%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数学之美_无意发现的几个视频</title>
+    <link href="https://ifndf.github.io/2023/01/15/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/"/>
+    <id>https://ifndf.github.io/2023/01/15/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</id>
+    <published>2023-01-15T01:27:55.473Z</published>
+    <updated>2023-01-15T14:07:55.564Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;“I was absolutely amazed when I stumbled upon a video on Bilibili that made mathematical theorems and formulas come alive with such</summary>
+        
+      
+    
+    
+    
+    
+    <category term="数学" scheme="https://ifndf.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>值得收藏的文章</title>
+    <link href="https://ifndf.github.io/2023/01/15/%E6%94%B6%E8%97%8F%E7%9A%84%E6%96%87%E7%AB%A0/"/>
+    <id>https://ifndf.github.io/2023/01/15/%E6%94%B6%E8%97%8F%E7%9A%84%E6%96%87%E7%AB%A0/</id>
+    <published>2023-01-15T01:27:55.473Z</published>
+    <updated>2023-01-19T18:04:43.322Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;碎片信息年代，还是有些好文值得收藏品味的。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;那些被吹爆的长期主义&quot;&gt;&lt;a href=&quot;#那些被吹爆的长期主义&quot; class=&quot;headerlink&quot; title=&quot;那些被吹爆的长期主义&quot;&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="好文" scheme="https://ifndf.github.io/categories/%E5%A5%BD%E6%96%87/"/>
+    
+    
+    <category term="好文" scheme="https://ifndf.github.io/tags/%E5%A5%BD%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何使用Hexo在Github搭建个人博客</title>
+    <link href="https://ifndf.github.io/2023/01/15/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Hexo%E5%9C%A8Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://ifndf.github.io/2023/01/15/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Hexo%E5%9C%A8Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
+    <published>2023-01-15T01:27:55.472Z</published>
+    <updated>2023-01-20T10:29:56.965Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;环境配置&quot;&gt;&lt;a href=&quot;#环境配置&quot; class=&quot;headerlink&quot; title=&quot;环境配置&quot;&gt;&lt;/a&gt;环境配置&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;安装Git   https://git-scm.com/downloads
+安装node.js </summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://ifndf.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="博客搭建" scheme="https://ifndf.github.io/categories/%E6%95%99%E7%A8%8B/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="Hexo" scheme="https://ifndf.github.io/tags/Hexo/"/>
+    
+    <category term="github" scheme="https://ifndf.github.io/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Just for Test git connection!</title>
+    <link href="https://ifndf.github.io/2023/01/15/test/"/>
+    <id>https://ifndf.github.io/2023/01/15/test/</id>
+    <published>2023-01-15T01:27:55.471Z</published>
+    <updated>2023-01-15T01:27:55.471Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Just-Test-git-push&quot;&gt;&lt;a href=&quot;#Just-Test-git-push&quot; class=&quot;headerlink&quot; title=&quot;Just Test git push!&quot;&gt;&lt;/a&gt;Just Test git push!&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>印象深刻的高中英语试卷文章《reason,season and lifetime》</title>
+    <link href="https://ifndf.github.io/2023/01/15/reason_season_and_lifetime/"/>
+    <id>https://ifndf.github.io/2023/01/15/reason_season_and_lifetime/</id>
+    <published>2023-01-15T01:27:55.470Z</published>
+    <updated>2023-01-17T18:45:52.274Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&quot;left&quot;&gt;
+&lt;img src=&quot;https://desk-fd.zol-img.com.cn/t_s960x600c5/g6/M00/00/04/ChMkKWEjCQ6IQocKABDIfMGZntcAATBvAJstlYAEMiU603.jpg&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown博客模板</title>
+    <link href="https://ifndf.github.io/2023/01/15/Markdown%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/"/>
+    <id>https://ifndf.github.io/2023/01/15/Markdown%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/</id>
+    <published>2023-01-15T01:27:55.469Z</published>
+    <updated>2023-01-15T01:27:55.470Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;欢迎使用Markdown编辑器写博客&quot;&gt;&lt;a href=&quot;#欢迎使用Markdown编辑器写博客&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://ifndf.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Markdown" scheme="https://ifndf.github.io/categories/%E6%95%99%E7%A8%8B/Markdown/"/>
+    
+    
+    <category term="Markdown" scheme="https://ifndf.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+</feed>
