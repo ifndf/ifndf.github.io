@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Travis&#39;s Westworld</title>
+  
+  
+  <link href="https://ifndf.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://ifndf.github.io/"/>
+  <updated>2023-11-23T16:31:21.448Z</updated>
+  <id>https://ifndf.github.io/</id>
+  
+  <author>
+    <name>Travis</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker基本操作</title>
+    <link href="https://ifndf.github.io/2023/11/24/docker%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+    <id>https://ifndf.github.io/2023/11/24/docker%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</id>
+    <published>2023-11-23T16:29:48.410Z</published>
+    <updated>2023-11-23T16:31:21.448Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;创建并运行：&lt;br&gt;docker container run nginx&lt;/p&gt;
+&lt;p&gt;停止运行：&lt;br&gt;docker container stop &lt;container ID&gt;&lt;/p&gt;
+&lt;p&gt;查看状态：&lt;br&gt;docker container ls</summary>
+        
+      
+    
+    
+    
+    
+    <category term="daily" scheme="https://ifndf.github.io/tags/daily/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Diary-October 31, 2022---Lost in a Dream</title>
+    <link href="https://ifndf.github.io/2023/11/24/Diary-October%2031,%202022---Lost%20in%20a%20Dream/"/>
+    <id>https://ifndf.github.io/2023/11/24/Diary-October%2031,%202022---Lost%20in%20a%20Dream/</id>
+    <published>2023-11-23T16:29:48.403Z</published>
+    <updated>2023-11-23T16:32:57.179Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;October 31, 2022, 19:35&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I took a short nap in the evening, maybe around ten or twenty minutes. In my</summary>
+        
+      
+    
+    
+    
+    
+    <category term="daily" scheme="https://ifndf.github.io/tags/daily/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Diary-July 15, 2023---Grandpa&#39;s Eye Health</title>
+    <link href="https://ifndf.github.io/2023/11/24/Diary-July%2015,%202023---Grandpa&#39;s%20Eye%20Health/"/>
+    <id>https://ifndf.github.io/2023/11/24/Diary-July%2015,%202023---Grandpa&#39;s%20Eye%20Health/</id>
+    <published>2023-11-23T16:29:48.390Z</published>
+    <updated>2023-11-23T16:34:17.258Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Tonight, around ten o’clock, my family suddenly messaged me on WeChat, saying that my grandfather had undergone cataract surgery today.</summary>
+        
+      
+    
+    
+    
+    
+    <category term="daily" scheme="https://ifndf.github.io/tags/daily/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Capturing the Beauty：Lyrics of &#39;season&#39; by Ayumi Hamasaki and &#39;gift&#39; by w-inds.</title>
+    <link href="https://ifndf.github.io/2023/11/24/Capturing%20the%20Beauty%EF%BC%9ALyrics%20of%20&#39;season&#39;%20by%20Ayumi%20Hamasaki%20and%20&#39;gift&#39;%20by%20w-inds./"/>
+    <id>https://ifndf.github.io/2023/11/24/Capturing%20the%20Beauty%EF%BC%9ALyrics%20of%20&#39;season&#39;%20by%20Ayumi%20Hamasaki%20and%20&#39;gift&#39;%20by%20w-inds./</id>
+    <published>2023-11-23T16:29:48.382Z</published>
+    <updated>2023-11-23T16:35:01.549Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;I want to share my love for two Japanese song lyrics that hold a special place in my heart — Ayumi Hamasaki’s ‘season’ and</summary>
+        
+      
+    
+    
+    
+    
+    <category term="daily" scheme="https://ifndf.github.io/tags/daily/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Diary-June 18, 2023---When the Shopping Fever Fizzles Out</title>
+    <link href="https://ifndf.github.io/2023/11/24/Diary-June%2018,%202023---When%20the%20Shopping%20Fever%20Fizzles%20Out/"/>
+    <id>https://ifndf.github.io/2023/11/24/Diary-June%2018,%202023---When%20the%20Shopping%20Fever%20Fizzles%20Out/</id>
+    <published>2023-11-23T16:29:48.370Z</published>
+    <updated>2023-11-23T16:39:17.137Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;As my collection of desired electronics, necessities, and non-essential items continues to grow, my interest in purchasing during</summary>
+        
+      
+    
+    
+    
+    
+    <category term="daily" scheme="https://ifndf.github.io/tags/daily/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>My Solution to Online Expression Concerns</title>
+    <link href="https://ifndf.github.io/2023/11/23/Finding%20Freedom%20in%20English%EF%BC%9A%20My%20Solution%20to%20Online%20Expression%20Concerns/"/>
+    <id>https://ifndf.github.io/2023/11/23/Finding%20Freedom%20in%20English%EF%BC%9A%20My%20Solution%20to%20Online%20Expression%20Concerns/</id>
+    <published>2023-11-23T15:33:11.062Z</published>
+    <updated>2023-11-23T15:36:43.262Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Recently, I’ve been pondering the issue of expressing my thoughts in writing. Despite having plenty of ideas, I always struggle to put</summary>
+        
+      
+    
+    
+    
+    
+    <category term="daily" scheme="https://ifndf.github.io/tags/daily/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实用收藏|理财投资相关</title>
+    <link href="https://ifndf.github.io/2023/07/15/%E9%93%BE%E6%8E%A5%E6%94%B6%E8%97%8F_%E7%90%86%E8%B4%A2%E6%8A%95%E8%B5%84/"/>
+    <id>https://ifndf.github.io/2023/07/15/%E9%93%BE%E6%8E%A5%E6%94%B6%E8%97%8F_%E7%90%86%E8%B4%A2%E6%8A%95%E8%B5%84/</id>
+    <published>2023-07-15T09:34:59.214Z</published>
+    <updated>2023-07-15T09:34:59.214Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;关于理财投资，可学习的东西太多了。&lt;/p&gt;
+&lt;p&gt;比如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;财务知识：了解货币、储蓄、债券、股票等金融产品的基本概念。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;投资知识：学习投资原则、投资策略以及评估投资机会的方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p</summary>
+        
+      
+    
+    
+    
+    
+    <category term="理财投资" scheme="https://ifndf.github.io/tags/%E7%90%86%E8%B4%A2%E6%8A%95%E8%B5%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实用收藏|英语学习方法</title>
+    <link href="https://ifndf.github.io/2023/07/15/%E9%93%BE%E6%8E%A5%E6%94%B6%E8%97%8F_%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://ifndf.github.io/2023/07/15/%E9%93%BE%E6%8E%A5%E6%94%B6%E8%97%8F_%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/</id>
+    <published>2023-07-15T09:34:59.214Z</published>
+    <updated>2023-07-15T09:34:59.214Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;“不要再学英语了，用英语去学习你喜欢的东西。”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;Rachel老师系列&quot;&gt;&lt;a href=&quot;#Rachel老师系列&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="好文" scheme="https://ifndf.github.io/tags/%E5%A5%BD%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于“存在”与“我”，让ChatGPT写个短篇故事</title>
+    <link href="https://ifndf.github.io/2023/07/15/%E8%AE%A9chatgpt%E7%94%9F%E6%88%90%E4%B8%80%E7%AF%87%E2%80%9C%E5%AD%98%E5%9C%A8%E2%80%9D%E4%B8%8E%E2%80%9C%E6%88%91%E2%80%9D%E7%9A%84%E6%95%85%E4%BA%8B/"/>
+    <id>https://ifndf.github.io/2023/07/15/%E8%AE%A9chatgpt%E7%94%9F%E6%88%90%E4%B8%80%E7%AF%87%E2%80%9C%E5%AD%98%E5%9C%A8%E2%80%9D%E4%B8%8E%E2%80%9C%E6%88%91%E2%80%9D%E7%9A%84%E6%95%85%E4%BA%8B/</id>
+    <published>2023-07-15T09:34:59.213Z</published>
+    <updated>2023-07-15T09:34:59.213Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;闲来无事，让ChatGPT关于“存在”与“我”为主题写短篇故事。&lt;/p&gt;
+&lt;p&gt;为什么会想到这两个词，估计是因为一直想看却始终难以咀嚼的书《存在与时间》，以及刚看完的美剧《西部世界》。&lt;/p&gt;
+&lt;p&gt;令我感到意外的是，这次它写的东西还真有点东西，所以特别记录一下：&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    
+    <category term="其他" scheme="https://ifndf.github.io/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实用收藏|github仓库</title>
+    <link href="https://ifndf.github.io/2023/07/15/%E9%93%BE%E6%8E%A5%E6%94%B6%E8%97%8F_%E5%AE%9E%E7%94%A8github%E4%BB%93%E5%BA%93/"/>
+    <id>https://ifndf.github.io/2023/07/15/%E9%93%BE%E6%8E%A5%E6%94%B6%E8%97%8F_%E5%AE%9E%E7%94%A8github%E4%BB%93%E5%BA%93/</id>
+    <published>2023-07-15T09:34:59.213Z</published>
+    <updated>2023-07-15T09:34:59.213Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;做饭&quot;&gt;&lt;a href=&quot;#做饭&quot; class=&quot;headerlink&quot; title=&quot;做饭&quot;&gt;&lt;/a&gt;做饭&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Anduin2017/HowToCook&quot;&gt;《How to</summary>
+        
+      
+    
+    
+    
+    
+    <category term="好文" scheme="https://ifndf.github.io/tags/%E5%A5%BD%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实用收藏|做饭</title>
+    <link href="https://ifndf.github.io/2023/07/15/%E9%93%BE%E6%8E%A5%E6%94%B6%E8%97%8F_%E5%81%9A%E9%A5%AD/"/>
+    <id>https://ifndf.github.io/2023/07/15/%E9%93%BE%E6%8E%A5%E6%94%B6%E8%97%8F_%E5%81%9A%E9%A5%AD/</id>
+    <published>2023-07-15T09:34:59.213Z</published>
+    <updated>2023-07-15T09:34:59.213Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;俗语有说：吃饭不积极，脑子有问题。&lt;/p&gt;
+&lt;p&gt;但话说回来，假如一个人对吃饭失去了期待，一定是当下的饭菜越来越垃圾了。既然如此，何不在空闲时间自己动手，丰衣足食。&lt;/p&gt;
+&lt;p&gt;个人而言，做饭最重要的是:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;步骤能简洁就尽量简洁，不搞多余玄学</summary>
+        
+      
+    
+    
+    
+    
+    <category term="好文" scheme="https://ifndf.github.io/tags/%E5%A5%BD%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数学之美_无意发现的几个视频</title>
+    <link href="https://ifndf.github.io/2023/07/15/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/"/>
+    <id>https://ifndf.github.io/2023/07/15/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</id>
+    <published>2023-07-15T09:34:59.210Z</published>
+    <updated>2023-07-15T09:34:59.210Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;- &lt;/p&gt;
+&lt;h4 id=&quot;直观理解泰勒公式-01&quot;&gt;&lt;a href=&quot;#直观理解泰勒公式-01&quot; class=&quot;headerlink&quot; title=&quot;直观理解泰勒公式_01:&quot;&gt;&lt;/a&gt;直观理解泰勒公式_01:&lt;/h4&gt;&lt;iframe</summary>
+        
+      
+    
+    
+    
+    
+    <category term="数学" scheme="https://ifndf.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>汉语表达“的”缺陷</title>
+    <link href="https://ifndf.github.io/2023/07/15/%E4%B8%AD%E6%96%87%E7%9A%84%E8%A1%A8%E8%BE%BE%E7%BC%BA%E9%99%B7/"/>
+    <id>https://ifndf.github.io/2023/07/15/%E4%B8%AD%E6%96%87%E7%9A%84%E8%A1%A8%E8%BE%BE%E7%BC%BA%E9%99%B7/</id>
+    <published>2023-07-15T09:34:59.210Z</published>
+    <updated>2023-07-15T09:34:59.210Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今天看到了一句话，“追求真实的美”这词句，又想起了人们常说的汉语表达歧义。&lt;/p&gt;
+&lt;p&gt;“真实的美”，因为一个“的”，让人分不清主语是真实（the beauty of reality) ，还是美(true</summary>
+        
+      
+    
+    
+    
+    
+    <category term="随想" scheme="https://ifndf.github.io/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何使用Hexo在Github搭建个人博客</title>
+    <link href="https://ifndf.github.io/2023/07/15/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Hexo%E5%9C%A8Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://ifndf.github.io/2023/07/15/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Hexo%E5%9C%A8Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
+    <published>2023-07-15T09:34:59.210Z</published>
+    <updated>2023-07-15T09:34:59.210Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;环境配置&quot;&gt;&lt;a href=&quot;#环境配置&quot; class=&quot;headerlink&quot; title=&quot;环境配置&quot;&gt;&lt;/a&gt;环境配置&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;安装Git   https://git-scm.com/downloads
+安装node.js </summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://ifndf.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="博客搭建" scheme="https://ifndf.github.io/categories/%E6%95%99%E7%A8%8B/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="Hexo" scheme="https://ifndf.github.io/tags/Hexo/"/>
+    
+    <category term="github" scheme="https://ifndf.github.io/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Just for Test git connection!</title>
+    <link href="https://ifndf.github.io/2023/07/15/test/"/>
+    <id>https://ifndf.github.io/2023/07/15/test/</id>
+    <published>2023-07-15T09:34:59.204Z</published>
+    <updated>2023-07-15T09:34:59.204Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Just-Test-git-push&quot;&gt;&lt;a href=&quot;#Just-Test-git-push&quot; class=&quot;headerlink&quot; title=&quot;Just Test git push!&quot;&gt;&lt;/a&gt;Just Test git push!&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一滴水一微尘</title>
+    <link href="https://ifndf.github.io/2023/07/15/%E4%B8%80%E7%B2%92%E6%B0%B4%E4%B8%80%E5%BE%AE%E5%B0%98/"/>
+    <id>https://ifndf.github.io/2023/07/15/%E4%B8%80%E7%B2%92%E6%B0%B4%E4%B8%80%E5%BE%AE%E5%B0%98/</id>
+    <published>2023-07-15T09:34:59.204Z</published>
+    <updated>2023-07-15T09:34:59.204Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;摘抄了这文章的最后一段话：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="随想" scheme="https://ifndf.github.io/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《reason,season and lifetime》</title>
+    <link href="https://ifndf.github.io/2023/07/15/reason,season%20and%20lifetime/"/>
+    <id>https://ifndf.github.io/2023/07/15/reason,season%20and%20lifetime/</id>
+    <published>2023-07-15T09:34:59.202Z</published>
+    <updated>2023-07-15T09:34:59.202Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&quot;left&quot;&gt;
+&lt;img src=&quot;https://desk-fd.zol-img.com.cn/t_s960x600c5/g6/M00/00/04/ChMkKWEjCQ6IQocKABDIfMGZntcAATBvAJstlYAEMiU603.jpg&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《悉达多》</title>
+    <link href="https://ifndf.github.io/2023/07/15/20230120_%E3%80%8A%E6%82%89%E8%BE%BE%E5%A4%9A%E3%80%8B%EF%BC%9A%E5%BF%98%E8%AE%B0%E6%97%B6%E9%97%B4/"/>
+    <id>https://ifndf.github.io/2023/07/15/20230120_%E3%80%8A%E6%82%89%E8%BE%BE%E5%A4%9A%E3%80%8B%EF%BC%9A%E5%BF%98%E8%AE%B0%E6%97%B6%E9%97%B4/</id>
+    <published>2023-07-15T09:34:59.201Z</published>
+    <updated>2023-07-15T09:34:59.201Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;前阵子看完了《悉达多》，摘抄了两段：&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“你，”一天，悉达多问瓦稣迪瓦，“你也跟河水悟出‘时间并不存在’这一秘密吗？”&lt;/p&gt;
+&lt;p&gt;瓦稣迪瓦现出明朗的微笑。&lt;/p&gt;
+&lt;p&gt;“是的，悉达多。”他道，“你的意思是，河水无处不在。</summary>
+        
+      
+    
+    
+    
+    
+    <category term="随想" scheme="https://ifndf.github.io/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>稍微思考一下死亡这件事</title>
+    <link href="https://ifndf.github.io/2023/07/15/20230123_%E6%80%9D%E8%80%83%E6%AD%BB%E4%BA%A1%E8%BF%99%E4%BB%B6%E4%BA%8B/"/>
+    <id>https://ifndf.github.io/2023/07/15/20230123_%E6%80%9D%E8%80%83%E6%AD%BB%E4%BA%A1%E8%BF%99%E4%BB%B6%E4%BA%8B/</id>
+    <published>2023-07-15T09:34:59.201Z</published>
+    <updated>2023-07-15T09:34:59.201Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;《耶鲁大学公开课：死亡》，这本5年前看过的书，竟在我看《绝命毒师》时又回想起来。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;“我要试着让你相信，没有什么灵魂，我要试着让你相信，永生不会是一件好事;畏惧死亡实际上不是对死亡的恰当反应，死亡并非特别神秘，自杀在某些情况</summary>
+        
+      
+    
+    
+    
+    
+    <category term="随想" scheme="https://ifndf.github.io/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
+  
+</feed>
