@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Travis&#39;s Westworld</title>
+  
+  
+  <link href="https://ifndf.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://ifndf.github.io/"/>
+  <updated>2024-11-17T15:04:00.596Z</updated>
+  <id>https://ifndf.github.io/</id>
+  
+  <author>
+    <name>Travis</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>My diary template</title>
+    <link href="https://ifndf.github.io/2024/11/17/20241117_diary_template/"/>
+    <id>https://ifndf.github.io/2024/11/17/20241117_diary_template/</id>
+    <published>2024-11-17T12:26:00.593Z</published>
+    <updated>2024-11-17T15:04:00.596Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;-</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Diary" scheme="https://ifndf.github.io/tags/Diary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重新理解“意义”</title>
+    <link href="https://ifndf.github.io/2024/02/09/202309%E9%87%8D%E6%96%B0%E6%80%9D%E8%80%83%E6%84%8F%E4%B9%89/"/>
+    <id>https://ifndf.github.io/2024/02/09/202309%E9%87%8D%E6%96%B0%E6%80%9D%E8%80%83%E6%84%8F%E4%B9%89/</id>
+    <published>2024-02-09T05:41:06.961Z</published>
+    <updated>2024-02-09T05:44:59.589Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;[1]&lt;br&gt;今年（2023）九月份某个深夜，下班做车路上，耳机中恰巧响起了美剧《西部世界》的插曲《sweet</summary>
+        
+      
+    
+    
+    
+    
+    <category term="随想" scheme="https://ifndf.github.io/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Diary-October 31, 2022---Lost in a Dream</title>
+    <link href="https://ifndf.github.io/2023/11/24/20231124_Diary-October%2031,%202022---Lost%20in%20a%20Dream/"/>
+    <id>https://ifndf.github.io/2023/11/24/20231124_Diary-October%2031,%202022---Lost%20in%20a%20Dream/</id>
+    <published>2023-11-23T16:29:48.403Z</published>
+    <updated>2023-11-23T16:32:57.179Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;October 31, 2022, 19:35&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I took a short nap in the evening, maybe around ten or twenty minutes. In my</summary>
+        
+      
+    
+    
+    
+    
+    <category term="daily" scheme="https://ifndf.github.io/tags/daily/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Capturing the Beauty：Lyrics of &#39;season&#39; by Ayumi Hamasaki and &#39;gift&#39; by w-inds.</title>
+    <link href="https://ifndf.github.io/2023/11/24/20231124_Capturing%20the%20Beauty%EF%BC%9ALyrics%20of%20&#39;season&#39;%20by%20Ayumi%20Hamasaki%20and%20&#39;gift&#39;%20by%20w-inds./"/>
+    <id>https://ifndf.github.io/2023/11/24/20231124_Capturing%20the%20Beauty%EF%BC%9ALyrics%20of%20&#39;season&#39;%20by%20Ayumi%20Hamasaki%20and%20&#39;gift&#39;%20by%20w-inds./</id>
+    <published>2023-11-23T16:29:48.382Z</published>
+    <updated>2023-11-23T16:35:01.549Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;I want to share my love for two Japanese song lyrics that hold a special place in my heart — Ayumi Hamasaki’s ‘season’ and</summary>
+        
+      
+    
+    
+    
+    
+    <category term="daily" scheme="https://ifndf.github.io/tags/daily/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何使用Hexo在Github搭建个人博客</title>
+    <link href="https://ifndf.github.io/2023/07/15/20230715_%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Hexo%E5%9C%A8Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://ifndf.github.io/2023/07/15/20230715_%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Hexo%E5%9C%A8Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
+    <published>2023-07-15T09:34:59.210Z</published>
+    <updated>2023-07-15T09:34:59.210Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;环境配置&quot;&gt;&lt;a href=&quot;#环境配置&quot; class=&quot;headerlink&quot; title=&quot;环境配置&quot;&gt;&lt;/a&gt;环境配置&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;安装Git   https://git-scm.com/downloads
+安装node.js </summary>
+        
+      
+    
+    
+    
+    <category term="教程" scheme="https://ifndf.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="博客搭建" scheme="https://ifndf.github.io/categories/%E6%95%99%E7%A8%8B/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="Hexo" scheme="https://ifndf.github.io/tags/Hexo/"/>
+    
+    <category term="github" scheme="https://ifndf.github.io/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数学之美_无意发现的几个视频</title>
+    <link href="https://ifndf.github.io/2023/07/15/20230715_%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/"/>
+    <id>https://ifndf.github.io/2023/07/15/20230715_%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</id>
+    <published>2023-07-15T09:34:59.210Z</published>
+    <updated>2023-07-15T09:34:59.210Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;- &lt;/p&gt;
+&lt;h4 id=&quot;直观理解泰勒公式-01&quot;&gt;&lt;a href=&quot;#直观理解泰勒公式-01&quot; class=&quot;headerlink&quot; title=&quot;直观理解泰勒公式_01:&quot;&gt;&lt;/a&gt;直观理解泰勒公式_01:&lt;/h4&gt;&lt;iframe</summary>
+        
+      
+    
+    
+    
+    
+    <category term="数学" scheme="https://ifndf.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Just for Test git connection!</title>
+    <link href="https://ifndf.github.io/2023/07/15/2021_test/"/>
+    <id>https://ifndf.github.io/2023/07/15/2021_test/</id>
+    <published>2023-07-15T09:34:59.204Z</published>
+    <updated>2024-11-17T15:56:17.916Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Just-Test-git-push&quot;&gt;&lt;a href=&quot;#Just-Test-git-push&quot; class=&quot;headerlink&quot; title=&quot;Just Test git push!&quot;&gt;&lt;/a&gt;Just Test git push!&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一滴水一微尘</title>
+    <link href="https://ifndf.github.io/2023/07/15/20230715_%E4%B8%80%E7%B2%92%E6%B0%B4%E4%B8%80%E5%BE%AE%E5%B0%98/"/>
+    <id>https://ifndf.github.io/2023/07/15/20230715_%E4%B8%80%E7%B2%92%E6%B0%B4%E4%B8%80%E5%BE%AE%E5%B0%98/</id>
+    <published>2023-07-15T09:34:59.204Z</published>
+    <updated>2023-07-15T09:34:59.204Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;摘抄了这文章的最后一段话：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="随想" scheme="https://ifndf.github.io/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>reason,season and lifetime</title>
+    <link href="https://ifndf.github.io/2023/07/15/20230715_reason,season%20and%20lifetime/"/>
+    <id>https://ifndf.github.io/2023/07/15/20230715_reason,season%20and%20lifetime/</id>
+    <published>2023-07-15T09:34:59.202Z</published>
+    <updated>2024-02-09T05:55:43.056Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&quot;left&quot;&gt;
+&lt;img src=&quot;https://desk-fd.zol-img.com.cn/t_s960x600c5/g6/M00/00/04/ChMkKWEjCQ6IQocKABDIfMGZntcAATBvAJstlYAEMiU603.jpg&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>读书笔记|《悉达多》划线部分</title>
+    <link href="https://ifndf.github.io/2023/07/15/20230120_%E3%80%8A%E6%82%89%E8%BE%BE%E5%A4%9A%E3%80%8B%EF%BC%9A%E5%BF%98%E8%AE%B0%E6%97%B6%E9%97%B4/"/>
+    <id>https://ifndf.github.io/2023/07/15/20230120_%E3%80%8A%E6%82%89%E8%BE%BE%E5%A4%9A%E3%80%8B%EF%BC%9A%E5%BF%98%E8%AE%B0%E6%97%B6%E9%97%B4/</id>
+    <published>2023-07-15T09:34:59.201Z</published>
+    <updated>2024-02-09T05:19:37.630Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;hr&gt;
+&lt;h1 id=&quot;元数据&quot;&gt;&lt;a href=&quot;#元数据&quot; class=&quot;headerlink&quot; title=&quot;元数据&quot;&gt;&lt;/a&gt;元数据&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;[!abstract] 悉达多&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="阅读" scheme="https://ifndf.github.io/categories/%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="随想" scheme="https://ifndf.github.io/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+    <category term="weread" scheme="https://ifndf.github.io/tags/weread/"/>
+    
+  </entry>
+  
+</feed>
